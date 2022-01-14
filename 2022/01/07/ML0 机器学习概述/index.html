@@ -167,7 +167,7 @@
 <p>监督学习过程：</p>
 <ol>
 <li>学习：利用训练数据学习模型，表现为条件概率分布$\hat P(Y|X)$或决策函数$Y=\hat f(X)$。模型描述输入与输出间的映射关系；</li>
-<li>预测：对于测试集的输入$x<em>{N+i}$，由模型$y</em>{N+i}=\arg\max<em>y\hat P(y|x</em>{N+i})$或$y<em>{N+i}=\hat f(x</em>{N+i})$给出对应输出。</li>
+<li>预测：对于测试集的输入$x_{N+i}$，由模型$y_{N+i}=\arg\max_y\hat P(y|x_{N+i})$或$y_{N+i}=\hat f(x_{N+i})$给出对应输出。</li>
 </ol>
 <h3 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h3><p>无监督学习（unsupervised learning）指从<strong>无标注数据中学习预测模型</strong>。<strong>本质</strong>：学习数据中的统计规律或潜在结构。</p>
 <p>输出为对输入的分析结果，由输入的类别、转换或概率表示，可以实现对数据的<strong>聚类、降维或概率估计</strong>。</p>
@@ -176,10 +176,10 @@
 <script type="math/tex; mode=display">U=\left\{x_1,x_2,\ldots,x_N\right\}</script><p>无监督学习过程：</p>
 <ol>
 <li>学习：从训练数据学习得到最优模型，表现为函数$z=\hat g(x)$，条件概率分布$\hat P(z|x)$或$\hat P(x|z)$；</li>
-<li>预测：对于给定的输入$x<em>{N+i}$，由模型$z</em>{N+i}=\hat g(x<em>{n+i})$或$z</em>{N+i}=\arg\max<em>z\hat P(z|x</em>{N+i})$给出相应输出进行聚类或降维，或者由模型$\hat P(x|z)$给出输入的概率$\hat P(x<em>{N+i}|z</em>{N+i})$进行概率估计。</li>
+<li>预测：对于给定的输入$x_{N+i}$，由模型$z_{N+i}=\hat g(x_{n+i})$或$z_{N+i}=\arg\max_z\hat P(z|x_{N+i})$给出相应输出进行聚类或降维，或者由模型$\hat P(x|z)$给出输入的概率$\hat P(x_{N+i}|z_{N+i})$进行概率估计。</li>
 </ol>
 <h3 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h3><p>强化学习（reinforcement learning）是<strong>智能系统在于环境的连续互动中学习最优行为策略的机器学习问题</strong>。<strong>本质</strong>：学习最优的序贯决策。</p>
-<p>智能系统与环境互动：在每一步$t$，系统从环境中观测到一个状态（state），记为$s<em>t$，和一个奖励（reward），记为$r_t$，并采取一个动作（action），记为$a_t$。环境根据系统选择的动作决定下一步的状态$s</em>{t+1]}$和奖励$r_{t+1}$。学习的策略即为给定状态下采取的动作。智能系统的目标是长期累积奖励的最大化。这一过程中，系统会不断试错（trial and error）。</p>
+<p>智能系统与环境互动：在每一步$t$，系统从环境中观测到一个状态（state），记为$s_t$，和一个奖励（reward），记为$r_t$，并采取一个动作（action），记为$a_t$。环境根据系统选择的动作决定下一步的状态$s_{t+1]}$和奖励$r_{t+1}$。学习的策略即为给定状态下采取的动作。智能系统的目标是长期累积奖励的最大化。这一过程中，系统会不断试错（trial and error）。</p>
 <p>强化学习的马尔科夫决策过程是<strong>状态、奖励、动作序列</strong>上的随机过程，由五元组$<S,A,P,r,\gamma>$组成。</p>
 <ul>
 <li>$S$ 有限状态（state）的集合；</li>
@@ -215,7 +215,7 @@ R_{exp}(f)&=\boldsymbol E_P\left[L(Y,f(X)\right]\\
 \end{aligned}</script><p>学习的目标即为选择期望风险最小的模型。</p>
 <p>给定一个训练数据集</p>
 <script type="math/tex; mode=display">T=\left\{(x_1,y_1),(x_2,y_2),\ldots,(x_N,y_N)\right\}</script><p>模型$f(X)$关于训练数据集的平均损失称为经验风险（empirical risk）或经验损失（empirical loss），记作$R_{emp}$:</p>
-<script type="math/tex; mode=display">R_{emp}(f)=\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))</script><p>根据大数定律，当样本容量$N$趋于无穷时，经验风险$R<em>{emp}(f)$趋于期望风险$R</em>{exp}(f)$。但现实中，训练样本数目往往有限，用经验风险估计期望风险往往并不理想。两种监督学习的基本策略。</p>
+<script type="math/tex; mode=display">R_{emp}(f)=\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))</script><p>根据大数定律，当样本容量$N$趋于无穷时，经验风险$R_{emp}(f)$趋于期望风险$R_{exp}(f)$。但现实中，训练样本数目往往有限，用经验风险估计期望风险往往并不理想。两种监督学习的基本策略。</p>
 <p><strong>经验风险最小化</strong></p>
 <p>经验风险最小化（empirical risk minimization，ERM）认为<strong>经验风险最小的模型即为最优的模型</strong>。</p>
 <script type="math/tex; mode=display">\min_{f\in\mathcal F}\frac{1}{N}\sum^N_{i=1}L(y_i,f(x_i))</script><p>样本容量足够大时，经验风险最小化的学习效果较好，如极大似然估计（maximum likelihood estimation）；但样本容量较少时，便会产生过拟合（over-fitting）现象。</p>
